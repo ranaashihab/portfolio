@@ -1,5 +1,3 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
 
 :root {
@@ -65,7 +63,7 @@ a:hover {
    Header — compact, doesn't eat the viewport
    ========================================================================== */
 
-header {
+header, #header {
   flex: 0 0 auto;
   background-color: var(--navy);
   color: #ffffff;
@@ -74,7 +72,7 @@ header {
   border-bottom: 3px solid var(--steel);
 }
 
-header h1 {
+header h1, #header h1 {
   margin: 0;
   font-family: var(--name-font);
   font-weight: 700;
@@ -82,21 +80,19 @@ header h1 {
   letter-spacing: -0.01em;
 }
 
-header p {
+header p, #header p {
   margin: 0.25rem 0 0;
   font-size: 0.85rem;
   font-weight: 400;
   color: #c3d1de;
 }
 
-
-
-nav {
+nav, #nav {
   flex: 0 0 auto;
   background-color: var(--navy-dark);
 }
 
-nav ul {
+nav ul, #nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
@@ -106,11 +102,11 @@ nav ul {
   max-width: var(--max-width);
 }
 
-nav li {
+nav li, #nav li {
   margin: 0;
 }
 
-nav a {
+nav a, #nav a {
   display: block;
   padding: 0.55rem 1.1rem;
   color: #b7c4d2;
@@ -121,21 +117,19 @@ nav a {
   transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
-nav a:hover {
+nav a:hover, #nav a:hover {
   background-color: rgba(255, 255, 255, 0.06);
   color: #ffffff;
   text-decoration: none;
 }
 
-nav a.active {
+nav a.active, #nav a.active {
   color: #ffffff;
   border-bottom-color: var(--steel);
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-
-
-main {
+main, #main {
   flex: 1 1 auto;
   min-height: 0;
   width: 100%;
@@ -150,7 +144,7 @@ main {
   overflow-y: auto;
 }
 
-section {
+section, div#projects {
   background-color: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -158,7 +152,7 @@ section {
   padding: 1.1rem 1.3rem;
 }
 
-section h2 {
+section h2, div#projects h2 {
   margin: 0 0 0.7rem;
   padding-bottom: 0.45rem;
   font-family: var(--display);
@@ -168,7 +162,7 @@ section h2 {
   border-bottom: 2px solid var(--steel-tint);
 }
 
-section h3 {
+section h3, div#projects h3 {
   margin: 0 0 0.3rem;
   font-family: var(--display);
   font-size: 0.95rem;
@@ -176,17 +170,16 @@ section h3 {
   color: var(--ink);
 }
 
-section p {
+section p, div#projects p {
   margin: 0.35rem 0 0.6rem;
   color: var(--ink-soft);
   font-size: 0.9rem;
 }
 
-section strong {
+section strong, div#projects strong {
   color: var(--navy);
   font-weight: 600;
 }
-
 
 section#contact {
   max-width: 700px;
@@ -218,7 +211,6 @@ section#contact > .contact-form {
   grid-row: 2 / span 2;
   margin-top: 0;
 }
-
 
 section#snapshot {
   background-color: var(--navy);
@@ -253,19 +245,16 @@ section#snapshot table.info a:hover {
   color: #ffffff;
 }
 
-
-section#projects {
+section#projects, div#projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 0.9rem;
   align-content: start;
 }
 
-section#projects h2 {
+section#projects h2, div#projects h2 {
   grid-column: 1 / -1;
 }
-
-
 
 table.info {
   border-collapse: collapse;
@@ -301,8 +290,6 @@ table.info td {
   font-weight: 500;
 }
 
-
-
 .tag {
   display: inline-block;
   font-size: 0.74rem;
@@ -314,8 +301,6 @@ table.info td {
   background-color: var(--steel-tint);
   border: 1px solid #d3ddea;
 }
-
-
 
 ul.plain {
   list-style: none;
@@ -341,8 +326,6 @@ ul.plain li::before {
   border-radius: 50%;
 }
 
-
-
 .project {
   padding: 0.9rem 1.1rem;
   border: 1px solid var(--line);
@@ -364,8 +347,6 @@ ul.plain li::before {
 .project p {
   font-size: 0.85rem;
 }
-
-
 
 .contact-form {
   margin-top: 0.6rem;
@@ -438,9 +419,7 @@ ul.plain li::before {
   background-color: var(--navy-dark);
 }
 
-
-
-footer {
+footer, #footer {
   flex: 0 0 auto;
   text-align: center;
   padding: 0.6rem 1.5rem;
@@ -450,7 +429,7 @@ footer {
   background-color: var(--surface);
 }
 
-footer p {
+footer p, #footer p {
   margin: 0.15rem 0;
 }
 
@@ -466,33 +445,31 @@ footer p {
   opacity: 1;
 }
 
-
-
 @media (max-height: 680px), (max-width: 600px) {
   body {
     display: block;
     height: auto;
   }
 
-  main {
+  main, #main {
     display: block;
     overflow: visible;
     padding: 1rem 1.25rem;
   }
 
-  main section {
+  main section, #main section, #main div#projects {
     margin-bottom: 1rem;
   }
 
-  section#projects {
+  section#projects, div#projects {
     display: block;
   }
 
-  section#projects .project {
+  section#projects .project, div#projects .project {
     margin-bottom: 0.9rem;
   }
 
-  section#projects .project:last-child {
+  section#projects .project:last-child, div#projects .project:last-child {
     margin-bottom: 0;
   }
 
