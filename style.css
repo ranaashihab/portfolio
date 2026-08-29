@@ -1,11 +1,4 @@
-/* ==========================================================================
-   Rana Ayisha Shihab — Portfolio Stylesheet
-   Professional navy/slate palette, laid out to fit one screen per page:
-   header + nav + content + footer share the viewport height instead of
-   stacking indefinitely. Sections arrange side-by-side where there's
-   more than one, so height stays compact instead of growing downward.
-   A short-viewport fallback lets content scroll rather than get clipped.
-   ========================================================================== */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
 
@@ -96,9 +89,7 @@ header p {
   color: #c3d1de;
 }
 
-/* ==========================================================================
-   Nav — compact strip
-   ========================================================================== */
+
 
 nav {
   flex: 0 0 auto;
@@ -142,9 +133,7 @@ nav a.active {
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* ==========================================================================
-   Main — takes the remaining height, sections lay out side by side
-   ========================================================================== */
+
 
 main {
   flex: 1 1 auto;
@@ -198,9 +187,7 @@ section strong {
   font-weight: 600;
 }
 
-/* Contact page: only one section on this page, so left alone it would
-   stretch edge to edge and blow up the form inputs. Cap its width and
-   split it into an info column + a form column instead. */
+
 section#contact {
   max-width: 700px;
   margin: 0 auto;
@@ -232,9 +219,7 @@ section#contact > .contact-form {
   margin-top: 0;
 }
 
-/* Home page: Quick Snapshot is the highlight box — solid navy instead of
-   white, so it stands apart from Welcome while staying the same size
-   (the shared main grid already stretches both to match height). */
+
 section#snapshot {
   background-color: var(--navy);
   border-color: var(--navy-dark);
@@ -268,8 +253,7 @@ section#snapshot table.info a:hover {
   color: #ffffff;
 }
 
-/* Projects page: let the section itself become the grid so cards sit
-   side by side instead of stacking the page taller. */
+
 section#projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -281,9 +265,7 @@ section#projects h2 {
   grid-column: 1 / -1;
 }
 
-/* ==========================================================================
-   Info tables
-   ========================================================================== */
+
 
 table.info {
   border-collapse: collapse;
@@ -319,9 +301,7 @@ table.info td {
   font-weight: 500;
 }
 
-/* ==========================================================================
-   Tags
-   ========================================================================== */
+
 
 .tag {
   display: inline-block;
@@ -335,9 +315,7 @@ table.info td {
   border: 1px solid #d3ddea;
 }
 
-/* ==========================================================================
-   Plain lists (soft skills)
-   ========================================================================== */
+
 
 ul.plain {
   list-style: none;
@@ -363,9 +341,7 @@ ul.plain li::before {
   border-radius: 50%;
 }
 
-/* ==========================================================================
-   Project cards
-   ========================================================================== */
+
 
 .project {
   padding: 0.9rem 1.1rem;
@@ -389,9 +365,7 @@ ul.plain li::before {
   font-size: 0.85rem;
 }
 
-/* ==========================================================================
-   Contact form
-   ========================================================================== */
+
 
 .contact-form {
   margin-top: 0.6rem;
@@ -464,9 +438,7 @@ ul.plain li::before {
   background-color: var(--navy-dark);
 }
 
-/* ==========================================================================
-   Footer — compact, sits at the bottom of the viewport
-   ========================================================================== */
+
 
 footer {
   flex: 0 0 auto;
@@ -494,12 +466,7 @@ footer p {
   opacity: 1;
 }
 
-/* ==========================================================================
-   Responsive
-   Below a comfortable height/width, forcing everything into one screen
-   would start clipping or crushing content — so the layout relaxes back
-   to a normal scrolling page instead of hiding anything.
-   ========================================================================== */
+
 
 @media (max-height: 680px), (max-width: 600px) {
   body {
