@@ -1,0 +1,542 @@
+/* ==========================================================================
+   Rana Ayisha Shihab — Portfolio Stylesheet
+   Professional navy/slate palette, laid out to fit one screen per page:
+   header + nav + content + footer share the viewport height instead of
+   stacking indefinitely. Sections arrange side-by-side where there's
+   more than one, so height stays compact instead of growing downward.
+   A short-viewport fallback lets content scroll rather than get clipped.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg: #f4f6f9;
+  --surface: #ffffff;
+  --ink: #1a2332;
+  --ink-soft: #57616f;
+  --ink-faint: #8792a1;
+  --line: #e1e5eb;
+
+  --navy: #16324f;
+  --navy-dark: #0f2338;
+  --steel: #3d6690;
+  --steel-tint: #e7edf3;
+
+  --display: "Poppins", "Inter", sans-serif;
+  --name-font: "Playfair Display", "Poppins", serif;
+  --body: "Inter", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --max-width: 1000px;
+  --radius: 8px;
+  --shadow: 0 1px 2px rgba(15, 35, 56, 0.05), 0 6px 16px -10px rgba(15, 35, 56, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--steel);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--steel);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+/* ==========================================================================
+   Header — compact, doesn't eat the viewport
+   ========================================================================== */
+
+header {
+  flex: 0 0 auto;
+  background-color: var(--navy);
+  color: #ffffff;
+  padding: 1.1rem 1.5rem 0.9rem;
+  text-align: center;
+  border-bottom: 3px solid var(--steel);
+}
+
+header h1 {
+  margin: 0;
+  font-family: var(--name-font);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 2.4vw + 0.6rem, 1.85rem);
+  letter-spacing: -0.01em;
+}
+
+header p {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #c3d1de;
+}
+
+/* ==========================================================================
+   Nav — compact strip
+   ========================================================================== */
+
+nav {
+  flex: 0 0 auto;
+  background-color: var(--navy-dark);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0;
+  max-width: var(--max-width);
+}
+
+nav li {
+  margin: 0;
+}
+
+nav a {
+  display: block;
+  padding: 0.55rem 1.1rem;
+  color: #b7c4d2;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+nav a.active {
+  color: #ffffff;
+  border-bottom-color: var(--steel);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================================
+   Main — takes the remaining height, sections lay out side by side
+   ========================================================================== */
+
+main {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-content: center;
+  align-items: stretch;
+  gap: 1rem;
+  overflow-y: auto;
+}
+
+section {
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.1rem 1.3rem;
+}
+
+section h2 {
+  margin: 0 0 0.7rem;
+  padding-bottom: 0.45rem;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy);
+  border-bottom: 2px solid var(--steel-tint);
+}
+
+section h3 {
+  margin: 0 0 0.3rem;
+  font-family: var(--display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+section p {
+  margin: 0.35rem 0 0.6rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+section strong {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* Contact page: only one section on this page, so left alone it would
+   stretch edge to edge and blow up the form inputs. Cap its width and
+   split it into an info column + a form column instead. */
+section#contact {
+  max-width: 700px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  column-gap: 1.5rem;
+  align-items: start;
+}
+
+section#contact h2 {
+  grid-column: 1 / -1;
+}
+
+section#contact > p {
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: 0;
+}
+
+section#contact > table.info {
+  grid-column: 1;
+  grid-row: 3;
+  margin-bottom: 0;
+}
+
+section#contact > .contact-form {
+  grid-column: 2;
+  grid-row: 2 / span 2;
+  margin-top: 0;
+}
+
+/* Home page: Quick Snapshot is the highlight box — solid navy instead of
+   white, so it stands apart from Welcome while staying the same size
+   (the shared main grid already stretches both to match height). */
+section#snapshot {
+  background-color: var(--navy);
+  border-color: var(--navy-dark);
+  color: #dce4ec;
+}
+
+section#snapshot h2 {
+  color: #ffffff;
+  border-bottom-color: rgba(255, 255, 255, 0.18);
+}
+
+section#snapshot table.info tr {
+  border-bottom-color: rgba(255, 255, 255, 0.14);
+}
+
+section#snapshot table.info th {
+  color: #9fb2c4;
+}
+
+section#snapshot table.info td {
+  color: #ffffff;
+}
+
+section#snapshot table.info a {
+  color: #a9c6e6;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+section#snapshot table.info a:hover {
+  color: #ffffff;
+}
+
+/* Projects page: let the section itself become the grid so cards sit
+   side by side instead of stacking the page taller. */
+section#projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+  align-content: start;
+}
+
+section#projects h2 {
+  grid-column: 1 / -1;
+}
+
+/* ==========================================================================
+   Info tables
+   ========================================================================== */
+
+table.info {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.35rem 0 0.6rem;
+  font-size: 0.88rem;
+}
+
+table.info tr {
+  border-bottom: 1px solid var(--line);
+}
+
+table.info tr:last-child {
+  border-bottom: none;
+}
+
+table.info th,
+table.info td {
+  text-align: left;
+  padding: 0.4rem 0.7rem 0.4rem 0;
+  font-weight: 400;
+  vertical-align: top;
+}
+
+table.info th {
+  width: 34%;
+  color: var(--ink-faint);
+  font-weight: 500;
+}
+
+table.info td {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Tags
+   ========================================================================== */
+
+.tag {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.24rem 0.6rem;
+  margin: 0.15rem 0.3rem 0.15rem 0;
+  border-radius: 5px;
+  color: var(--navy);
+  background-color: var(--steel-tint);
+  border: 1px solid #d3ddea;
+}
+
+/* ==========================================================================
+   Plain lists (soft skills)
+   ========================================================================== */
+
+ul.plain {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.plain li {
+  position: relative;
+  padding: 0.25rem 0 0.25rem 1.3rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+ul.plain li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7rem;
+  width: 6px;
+  height: 6px;
+  background-color: var(--steel);
+  border-radius: 50%;
+}
+
+/* ==========================================================================
+   Project cards
+   ========================================================================== */
+
+.project {
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--steel);
+  border-radius: 6px;
+  background-color: var(--bg);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.project:hover {
+  border-left-color: var(--navy);
+  box-shadow: var(--shadow);
+}
+
+.project h3 {
+  color: var(--ink);
+}
+
+.project p {
+  font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   Contact form
+   ========================================================================== */
+
+.contact-form {
+  margin-top: 0.6rem;
+}
+
+.contact-form fieldset {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.9rem 1rem;
+}
+
+.contact-form legend {
+  padding: 0 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.form-row {
+  margin-bottom: 0.6rem;
+}
+
+.form-row label {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.form-row input[type="text"],
+.form-row textarea {
+  width: 100%;
+  padding: 0.45rem 0.65rem;
+  font-family: var(--body);
+  font-size: 0.85rem;
+  color: var(--ink);
+  background-color: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-row input[type="text"]:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--steel);
+  box-shadow: 0 0 0 3px var(--steel-tint);
+}
+
+.form-row textarea {
+  resize: vertical;
+  min-height: 3.5rem;
+}
+
+.contact-form button[type="submit"] {
+  display: inline-block;
+  padding: 0.5rem 1.3rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--navy);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.contact-form button[type="submit"]:hover {
+  background-color: var(--navy-dark);
+}
+
+/* ==========================================================================
+   Footer — compact, sits at the bottom of the viewport
+   ========================================================================== */
+
+footer {
+  flex: 0 0 auto;
+  text-align: center;
+  padding: 0.6rem 1.5rem;
+  color: var(--ink-faint);
+  font-size: 0.76rem;
+  border-top: 1px solid var(--line);
+  background-color: var(--surface);
+}
+
+footer p {
+  margin: 0.15rem 0;
+}
+
+.validator-badge img {
+  vertical-align: middle;
+  opacity: 0.6;
+  height: 20px;
+  width: auto;
+  transition: opacity 0.15s ease;
+}
+
+.validator-badge img:hover {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Responsive
+   Below a comfortable height/width, forcing everything into one screen
+   would start clipping or crushing content — so the layout relaxes back
+   to a normal scrolling page instead of hiding anything.
+   ========================================================================== */
+
+@media (max-height: 680px), (max-width: 600px) {
+  body {
+    display: block;
+    height: auto;
+  }
+
+  main {
+    display: block;
+    overflow: visible;
+    padding: 1rem 1.25rem;
+  }
+
+  main section {
+    margin-bottom: 1rem;
+  }
+
+  section#projects {
+    display: block;
+  }
+
+  section#projects .project {
+    margin-bottom: 0.9rem;
+  }
+
+  section#projects .project:last-child {
+    margin-bottom: 0;
+  }
+
+  section#contact {
+    display: block;
+    max-width: none;
+  }
+
+  section#contact > p,
+  section#contact > table.info,
+  section#contact > .contact-form {
+    margin-top: 0.6rem;
+  }
+}
